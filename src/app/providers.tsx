@@ -15,7 +15,7 @@ export type ReaderResult = string | null | ArrayBuffer
 
 type JSONFile = {
     data: ReaderResult
-    name: string
+    header: string
 }
 
 
@@ -43,7 +43,7 @@ export const JSONFileProvider = ({
 }) => {
     const [file, setFile] = useState<JSONFile>(() => {
         const savedFile = localStorage.getItem("jsonFile");
-        return savedFile ? JSON.parse(savedFile) : { name: "", data: null };
+        return savedFile ? JSON.parse(savedFile) : { header: "", data: null };
     });
 
     useEffect(() => {
