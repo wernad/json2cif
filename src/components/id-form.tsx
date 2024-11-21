@@ -13,15 +13,6 @@ import { RadioInput } from './radio-input';
 import { useJSONContext } from '@/app/providers';
 import { IdInput } from './id-input';
 
-function checkFileType(file: File) {
-    if (file?.name) {
-        const fileType = file.name.split(".").pop();
-        if (fileType === "json") {
-            return true;
-        }
-    }
-    return false;
-}
 
 const formSchema = z.object({
     protein_id: z.string().min(3),
@@ -32,7 +23,7 @@ const API_URL = "https://channelsdb2.biodata.ceitec.cz/api/channels/";
 type FormSchema = z.infer<typeof formSchema>;
 
 export const IdForm = () => {
-    const { file, setFile } = useJSONContext();
+    const { setFile } = useJSONContext();
     const router = useRouter();
     const [isPending, setIsPending] = useState(false);
     const form = useForm<FormSchema>({

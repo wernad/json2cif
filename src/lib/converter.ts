@@ -70,7 +70,7 @@ _profile.charge`,
 
     const data_json = JSON.parse(data);
 
-    let rows: Rows = {
+    const rows: Rows = {
         "annotation": [],
         "channel": [],
         "layer": [],
@@ -80,26 +80,26 @@ _profile.charge`,
         "profile": []
     }
 
-    for (var ann of data_json["Annotations"]) {
+    for (const ann of data_json["Annotations"]) {
         rows.annotation.push(`${ann["Id"]} ${ann["Name"]} ${ann["Description"]} ${ann["Reference"]} ${ann["ReferenceType"]}`);
     }
 
     const methods = data_json["Channels"];
-    for (var method in methods) {
+    for (const method in methods) {
         const channels = methods[method];
-        for (var channel of channels) {
+        for (const channel of channels) {
             const channelId = channel["Id"]
             rows.channel.push(`${channelId} ${channel["Type"]} ${method} ${channel["Auto"]} ${channel["Cavity"]}`);
 
             const profiles: [] = channel["Profile"];
-            for (var profile of profiles) {
+            for (const profile of profiles) {
                 rows.profile.push(`${rows.profile.length + 1} ${channelId} ${profile["Radius"]} ${profile["FreeRadius"]} ${profile["T"]} ${profile["Distance"]} ${profile["X"]} ${profile["Y"]} ${profile["Z"]} ${profile["Charge"]}`);
             }
 
             const layers = channel["Layers"];
             const hets = layers["HetResidues"];
             const layersInfo = layers["LayersInfo"];
-            for (var het of hets) {
+            for (const het of hets) {
                 const split_het = het.split(" ");
                 rows.hetResidue.push(`${channelId} ${split_het[0]} ${split_het[1]} ${split_het[2]} ${split_het.length > 3 ? "True" : "False"}`)
             }

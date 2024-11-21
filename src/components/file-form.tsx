@@ -31,7 +31,7 @@ const formSchema = z.object({
 type FormSchema = z.infer<typeof formSchema>;
 
 export const FileForm = () => {
-    const { file, setFile } = useJSONContext();
+    const { setFile } = useJSONContext();
     const router = useRouter();
     const [isPending, setIsPending] = useState(false);
     const form = useForm<FormSchema>({

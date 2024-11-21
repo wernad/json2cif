@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, useContext, useEffect, useMemo, useState, type PropsWithChildren } from 'react';
+import { createContext, useContext, useMemo, useState, type PropsWithChildren } from 'react';
 import { Toaster } from 'sonner';
 
 
@@ -41,16 +41,17 @@ export const JSONFileProvider = ({
 }: {
     children: React.ReactNode;
 }) => {
-    const [file, setFile] = useState<JSONFile>(() => {
-        const savedFile = localStorage.getItem("jsonFile");
-        return savedFile ? JSON.parse(savedFile) : { header: "", data: null };
-    });
+    const [file, setFile] = useState<JSONFile>({ header: "", data: null });
+    // () => {
+    //     const savedFile = localStorage.getItem("jsonFile");
+    //     return savedFile ? JSON.parse(savedFile) : { header: "", data: null };
+    // });
 
-    useEffect(() => {
-        if (file.data !== null) {
-            localStorage.setItem("jsonFile", JSON.stringify(file));
-        }
-    }, [file]);
+    // useEffect(() => {
+    //     if (file.data !== null) {
+    //         localStorage.setItem("jsonFile", JSON.stringify(file));
+    //     }
+    // }, [file]);
 
     const value = useMemo(
         () => ({

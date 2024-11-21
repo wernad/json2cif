@@ -3,10 +3,9 @@ import { useFormContext } from 'react-hook-form';
 
 type FormInputProps = HTMLProps<HTMLInputElement> & {
     name: string;
-    label: string;
 };
 
-export const FileInput = ({ name, label, className, ...inputProps }: FormInputProps) => {
+export const FileInput = ({ name, ...inputProps }: FormInputProps) => {
     const { register, formState: { errors } } = useFormContext();
     const [fileName, setFileName] = useState<string | null>(null);
 

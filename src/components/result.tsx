@@ -6,7 +6,7 @@ type ResultProps = HTMLProps<HTMLDivElement> & {
     result: string;
 };
 
-export const Result = ({ result, className, ...inputProps }: ResultProps) => {
+export const Result = ({ result, className }: ResultProps) => {
 
     return (
         <>

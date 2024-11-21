@@ -7,21 +7,18 @@ import { useEffect, useState } from "react";
 import { DownloadButton } from "./download-button";
 
 export const Converter = () => {
-    const { file, setFile } = useJSONContext();
+    const { file } = useJSONContext();
     const header = file.header;
     const [result, setResult] = useState("");
 
+    useEffect(() => {
+        const convertedResult = JSON2CIF(file.header, file.data as string);
+        setResult(convertedResult);
+    }, [file]);
+
     if (file === null || file.data === null) {
         return "No file loaded."
-    } else {
-
-        useEffect(() => {
-            const convertedResult = JSON2CIF(file.header, file.data as string);
-            setResult(convertedResult);
-            console.log("here", convertedResult);
-        }, [file.data]);
     }
-
 
     return (
         <>
