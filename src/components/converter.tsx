@@ -7,7 +7,7 @@ import { useEffect, useState } from "react";
 
 export const Converter = () => {
     const { file, setFile } = useJSONContext();
-    const name = file.name.split(".")[0];
+    const header = file.header;
     const [result, setResult] = useState("");
 
     if (file === null || file.data === null) {
@@ -25,7 +25,7 @@ export const Converter = () => {
     return (
         <>
             <div className="flex justify-center w-full p-4 bg-gray-100 dark:bg-gray-800  overflow-auto text-sm text-black dark:text-gray-200">
-                <h2 className="text-2xl max-h-5 align-middle">Protein: {name}</h2>
+                <h2 className="text-2xl max-h-5 align-middle">{header}</h2>
 
             </div>
             <div className="flex items-center w-full bg-gray-100 dark:bg-gray-800 space-x-4 overscroll-none">
