@@ -1,10 +1,10 @@
 'use client';
 
-import { ConvertForm } from "@/components/convert-form";
+import { FormsWrapper } from "@/components/forms-wrapper";
 
 const ConvertJSON = () => {
     return <>
-        <ConvertForm />
+        <FormsWrapper />
     </>
 };
 
