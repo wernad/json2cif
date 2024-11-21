@@ -8,7 +8,7 @@ type Rows = {
     "profile": string[]
 }
 
-export const JSON2CIF = (data: string) => {
+export const JSON2CIF = (name: string, data: string) => {
     const headers = {
         "annotation": `loop_
 _annotation.id
@@ -155,5 +155,5 @@ ${headers.het_residue}
 ${rows.hetResidue.join("\n")}
 `
 
-    return cif;
+    return `${name}\n${cif}`;
 };

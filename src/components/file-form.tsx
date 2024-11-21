@@ -9,10 +9,8 @@ import { useRouter } from 'next/navigation';
 
 import { cn } from '@/lib/cn';
 
-import { RadioInput } from './radio-input';
 import { FileInput } from './file-input';
 import { useJSONContext } from '@/app/providers';
-import { NameInput } from './id-input';
 
 function checkFileType(file: File) {
     if (file?.name) {

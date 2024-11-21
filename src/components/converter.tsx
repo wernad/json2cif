@@ -4,6 +4,7 @@ import { useJSONContext } from "@/app/providers";
 import { Result } from "@/components/result";
 import { JSON2CIF } from "@/lib/converter";
 import { useEffect, useState } from "react";
+import { DownloadButton } from "./download-button";
 
 export const Converter = () => {
     const { file, setFile } = useJSONContext();
@@ -15,7 +16,7 @@ export const Converter = () => {
     } else {
 
         useEffect(() => {
-            const convertedResult = JSON2CIF(file.data as string);
+            const convertedResult = JSON2CIF(file.header, file.data as string);
             setResult(convertedResult);
             console.log("here", convertedResult);
         }, [file.data]);
@@ -24,9 +25,12 @@ export const Converter = () => {
 
     return (
         <>
-            <div className="flex justify-center w-full p-4 bg-gray-100 dark:bg-gray-800  overflow-auto text-sm text-black dark:text-gray-200">
-                <h2 className="text-2xl max-h-5 align-middle">{header}</h2>
+            <div className="flex justify-between items-center w-full p-4 bg-gray-100 dark:bg-gray-800 overflow-auto text-sm text-black dark:text-gray-200">
+                <div className="flex-1 flex justify-center">
+                    <h2 className="text-2xl">{header}</h2>
+                </div>
 
+                <DownloadButton fileName={file.header} fileContent={result} className="ml-auto" />
             </div>
             <div className="flex items-center w-full bg-gray-100 dark:bg-gray-800 space-x-4 overscroll-none">
                 <Result className="flex-grow max-h-[calc(100vh-6rem)] overflow-auto" result={file.data as string} />
