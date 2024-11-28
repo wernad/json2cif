@@ -43,14 +43,21 @@ export const IdForm = () => {
             const data = await response.json();
             return data;
         };
-        const file = await fetchJSON(values.database, values.protein_id)
+        const response = await fetchJSON(values.database, values.protein_id)
 
-        if (file) {
-            toast.success('Fetching successful.');
-            setIsPending(false);
+        if (response) {
+            if ("detail" in response) {
+                toast.error(`Protein id ${values.protein_id} not found in ChannelsDB.`)
+                setIsPending(false);
+            }
+            else {
+                toast.success('Fetching successful.');
+                setIsPending(false);
 
-            setFile({ header: `Protein: ${values.protein_id}`, data: JSON.stringify(file, null, 2) });
-            router.push('/result');
+                setFile({ header: `Protein: ${values.protein_id}`, data: JSON.stringify(response, null, 2) });
+                router.push('/result');
+
+            }
         } else {
             toast.error('Error with form submission.');
         }
