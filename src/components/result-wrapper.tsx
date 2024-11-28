@@ -6,7 +6,7 @@ import { JSON2CIF } from "@/lib/converter";
 import { useEffect, useState } from "react";
 import { DownloadButton } from "./download-button";
 
-export const Converter = () => {
+export const ResultWrapper = () => {
     const { file } = useJSONContext();
     const header = file.header;
     const [result, setResult] = useState("");

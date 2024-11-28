@@ -1,12 +1,12 @@
 'use client';
 
-import { Converter } from "@/components/converter";
+import { ResultWrapper } from "@/components/result-wrapper";
 
 const ResultPage = () => {
 
     return <>
 
-        <Converter />
+        <ResultWrapper />
     </>
 };
 
