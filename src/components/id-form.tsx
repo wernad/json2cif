@@ -33,7 +33,6 @@ export const IdForm = () => {
     const onSubmit = async (values: FormSchema) => {
         setIsPending(true);
 
-        // TODO use after CORS is fixed on channelsdb side.
         const fetchJSON = async (db: string, protein_id: string) => {
             const response = await fetch(API_URL + db + "/" + protein_id, {
                 method: 'GET',
