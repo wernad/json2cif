@@ -39,7 +39,6 @@ export const IdForm = () => {
                 method: 'GET',
                 headers: {
                     'Content-Type': 'application/json',
-                    'Access-Control-Allow-Origin': 'https://channelsdb2.biodata.ceitec.cz/api'
                 },
             });
             const data = await response.json();
@@ -50,7 +49,8 @@ export const IdForm = () => {
         if (file) {
             toast.success('Fetching successful.');
             setIsPending(false);
-            setFile({ header: `Protein: ${file.name}`, data: file });
+
+            setFile({ header: `Protein: ${values.protein_id}`, data: JSON.stringify(file, null, 2) });
             router.push('/result');
         } else {
             toast.error('Error with form submission.');
