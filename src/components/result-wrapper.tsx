@@ -1,5 +1,6 @@
 'use client';
 
+import { ClipLoader } from "react-spinners";
 import { useJSONContext } from "@/app/providers";
 import { Result } from "@/components/result";
 import { JSON2CIF } from "@/lib/converter";
@@ -34,7 +35,9 @@ export const ResultWrapper = () => {
                 <Result className="flex-grow max-h-[calc(100vh-6rem)] overflow-auto w-full" result={file.data as string} />
                 {result ?
                     <Result className="flex-grow max-h-[calc(100vh-6rem)] overflow-auto w-full" result={result as string} />
-                    : <div className="flex-grow max-h-[calc(100vh-6rem)] overflow-auto w-full">"Converting..."</div>}
+                    : <div className="flex flex-grow justify-center max-h-[calc(100vh-6rem)] overflow-auto w-full">
+                        <ClipLoader color="white" size={150} />
+                    </div>}
             </div>
         </>
     );
