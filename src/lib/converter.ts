@@ -8,7 +8,7 @@ type Rows = {
     "profile": string[]
 }
 const roundItems = (values: string[]) => {
-    var result = "";
+    let result = "";
     for (const value of values) {
         const rounded = parseFloat(value).toFixed(3);
         result += `${parseFloat(rounded).toFixed(3)} `
