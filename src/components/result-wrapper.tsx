@@ -22,18 +22,19 @@ export const ResultWrapper = () => {
 
     return (
         <>
-            <div className="flex justify-between items-center w-full p-4 bg-gray-100 dark:bg-gray-800 overflow-auto text-sm text-black dark:text-gray-200">
-                <div className="flex-1 flex justify-center">
+            <div className="grid grid-cols-3 w-full p-4 bg-gray-100 dark:bg-gray-800 overflow-auto text-sm text-black dark:text-gray-200">
+                <div className="flex justify-center col-start-2 col-span-1 ">
                     <h2 className="text-2xl">{header}</h2>
                 </div>
-
-                <DownloadButton fileName={file.header} fileContent={result} className="ml-auto" />
+                <div className="flex justify-end col-start-3 col-span-3">
+                    <DownloadButton fileName={file.header} fileContent={result} />
+                </div>
             </div>
             <div className="flex items-center w-full bg-gray-100 dark:bg-gray-800 space-x-4">
-                <Result className="flex-grow max-h-[calc(100vh-6rem)] overflow-auto" result={file.data as string} />
+                <Result className="flex-grow max-h-[calc(100vh-6rem)] overflow-auto w-full" result={file.data as string} />
                 {result ?
-                    <Result className="flex-grow max-h-[calc(100vh-6rem)] overflow-auto" result={result as string} />
-                    : "Converting..."}
+                    <Result className="flex-grow max-h-[calc(100vh-6rem)] overflow-auto w-full" result={result as string} />
+                    : <div className="flex-grow max-h-[calc(100vh-6rem)] overflow-auto w-full">"Converting..."</div>}
             </div>
         </>
     );
