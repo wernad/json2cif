@@ -29,11 +29,11 @@ export const ResultWrapper = () => {
 
                 <DownloadButton fileName={file.header} fileContent={result} className="ml-auto" />
             </div>
-            <div className="flex items-center w-full bg-gray-100 dark:bg-gray-800 space-x-4 overscroll-none">
+            <div className="flex items-center w-full bg-gray-100 dark:bg-gray-800 space-x-4">
                 <Result className="flex-grow max-h-[calc(100vh-6rem)] overflow-auto" result={file.data as string} />
-                {result &&
+                {result ?
                     <Result className="flex-grow max-h-[calc(100vh-6rem)] overflow-auto" result={result as string} />
-                }
+                    : "Converting..."}
             </div>
         </>
     );
