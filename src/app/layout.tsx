@@ -29,9 +29,10 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased  overflow-hidden`}
       >
-        <div className="flex justify-center w-full bg-gray-100 dark:bg-gray-700 dark:text-white">
+        <div className="flex flex-col items-center justify-center w-full bg-gray-100 dark:bg-gray-700 dark:text-white">
           <h1 className="mb-6 text-3xl max-h-5">JSON to CIF</h1>
-          <h2>If using old Vercel url, you will be redirected to Netlify. No further action is required.</h2>
+          <h2 className="text-center">Vercel url is depricated and redirects to Netlify.</h2>
+          <h2 className="text-center">App itself works as usual.</h2>
         </div>
         <Providers>{children}</Providers>
       </body>
