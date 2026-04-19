@@ -31,8 +31,8 @@ export default function RootLayout({
       >
         <div className="flex flex-col items-center justify-center w-full bg-gray-100 dark:bg-gray-700 dark:text-white">
           <h1 className="mb-6 text-3xl max-h-5">JSON to CIF</h1>
-          <h2 className="text-center">Vercel url is depricated and redirects to Netlify.</h2>
-          <h2 className="text-center">App itself works as usual.</h2>
+          <h2 className="text-center text-yellow-500">⚠Vercel url is depricated and redirects to Netlify. ⚠</h2>
+          <h2 className="text-center text-green-500">⚠ App itself works as usual. ⚠</h2>
         </div>
         <Providers>{children}</Providers>
       </body>
