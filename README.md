@@ -1,4 +1,5 @@
-# PROJECT WAS REDEPLOYED TO NETLIFY.APP -> https://json2cif.netlify.app/
+# PROJECT WAS REDEPLOYED TO NETLIFY.APP 
+# https://json2cif.netlify.app/
 
 ## Overview
 This is utility tool created for ChannelsDB workflow related to CIF files (https://github.com/wernad/channelsdb). 
