@@ -1,5 +1,7 @@
+# DEPLOYMENT IS CURRENTLY DOWN
+
 ## Overview
-This is utility tool for my main diploma thesis (https://github.com/wernad/channelsdb). 
+This is utility tool created for ChannelsDB workflow related to CIF files (https://github.com/wernad/channelsdb). 
 This application convert JSON containing PDB or Alphafill related data into CIF file. Output CIF file can be exported.
 ### Run the app
 
